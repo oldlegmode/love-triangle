@@ -8,13 +8,13 @@ module.exports = function getLoveTrianglesCount(preferences = []) {
     return item - 1;
   });
 
-  for(let i = 0; i < arr.length; i++) {
-    if (arr[i] != null && (i == arr[arr[arr[i]]])) {
+  arr.forEach((item, i, arr) => {
+    if (arr[i] !== arr[arr[arr[i]]] && (i == arr[arr[arr[i]]])) {
       arr[i] = null;
       arr[arr[i]] = null;
       arr[arr[arr[i]]] = null;
       count++;
     }
-  }
+  });
   return count;
 };
